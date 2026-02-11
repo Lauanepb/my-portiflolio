@@ -10,6 +10,19 @@ export default function Portfolio() {
   const [showPix, setShowPix] = useState(false);
 
   useEffect(() => {
+    // Ajusta o Título e o Favicon dinamicamente
+    document.title = "UaneBag®";
+    
+    // Tenta encontrar o link do favicon ou cria um novo
+    let link = document.querySelector("link[rel~='icon']");
+    if (!link) {
+      link = document.createElement('link');
+      link.rel = 'icon';
+      document.getElementsByTagName('head')[0].appendChild(link);
+    }
+    // Ícone de Cadeado/Privacidade (usando um emoji ou link de imagem de privacidade)
+    link.href = "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔒</text></svg>";
+
     const stored = localStorage.getItem("visits");
     const count = stored ? Number(stored) + 1 : 1;
     localStorage.setItem("visits", String(count));
@@ -29,7 +42,7 @@ export default function Portfolio() {
     <main className="min-h-screen bg-[#0b0014] text-neutral-100 overflow-x-hidden selection:bg-fuchsia-500/30">
       
       <AnimatePresence mode="wait">
-        {/* PASSO 1: PRIVACY */}
+        {/* PASSO 1: PRIVACY (A TELA QUE VOCÊ VAI DIVULGAR) */}
         {step === 1 && (
           <motion.section 
             key="hero"
@@ -105,7 +118,7 @@ export default function Portfolio() {
           </motion.section>
         )}
 
-        {/* PASSO 3: CONTEÚDO REVELADO */}
+        {/* PASSO 3: CONTEÚDO REVELADO (O SITE COMPLETO) */}
         {step === 3 && (
           <motion.div 
             key="content"
