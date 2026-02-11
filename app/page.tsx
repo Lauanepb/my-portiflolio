@@ -1,12 +1,13 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Instagram, Linkedin, Mail, MessageCircle, ShoppingBag, Heart, ArrowDown, Lock, Terminal, Sparkles, Code, GraduationCap, Briefcase, Database } from "lucide-react";
+import { Instagram, Linkedin, Mail, MessageCircle, ShoppingBag, Heart, ArrowDown, Lock, Terminal, Sparkles, Code, GraduationCap, Briefcase, Database, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function Portfolio() {
   const [visits, setVisits] = useState(0);
-  const [step, setStep] = useState(1); 
+  const [step, setStep] = useState(1);
+  const [showPix, setShowPix] = useState(false);
 
   useEffect(() => {
     const stored = localStorage.getItem("visits");
@@ -19,8 +20,8 @@ export default function Portfolio() {
     { year: "2019", title: "Comunicação de Base", text: "Guia de trenzinho turístico — o despertar da oratória e do trato com o público." },
     { year: "2021", title: "O Código", text: "Ensino médio técnico em informática pelo IFSP — onde a lógica virou minha ferramenta de construção." },
     { year: "2022", title: "Dados & Monitoria", text: "Monitoria em Banco de Dados no IFSP — ensinando e estruturando conhecimento para outros." },
-    { year: "2023", title: "Sistemas & UNIFEI", text: "Ingresso em Eng. de Produção e atuação técnica na Secretaria de Desenvolvimento Institucional da UNIFEI." },
-    { year: "2024", title: "GE Vernova", text: "Experiência de 6 meses em Sales and Proposal, lidando com propostas comerciais e organização de dados." },
+    { year: "2024", title: "Sistemas & UNIFEI", text: "Ingresso em Eng. de Produção e atuação técnica na Secretaria de Desenvolvimento Institucional da UNIFEI." },
+    { year: "2025", title: "GE Vernova", text: "Experiência em Sales and Proposal, lidando com propostas comerciais, organização de dados e processos críticos." },
     { year: "2025-2026", title: "UaneBag & Futuro", text: "Foco total na universidade e expansão da marca própria unindo tecnologia e design." }
   ];
 
@@ -28,7 +29,7 @@ export default function Portfolio() {
     <main className="min-h-screen bg-[#0b0014] text-neutral-100 overflow-x-hidden selection:bg-fuchsia-500/30">
       
       <AnimatePresence mode="wait">
-        {/* PASSO 1: PRIVACY (Gatilho de Curiosidade) */}
+        {/* PASSO 1: PRIVACY */}
         {step === 1 && (
           <motion.section 
             key="hero"
@@ -84,11 +85,11 @@ export default function Portfolio() {
               className="max-w-4xl"
             >
               <h2 className="text-3xl md:text-6xl font-serif italic text-neutral-100 leading-[1.1] mb-12">
-                "O marketing da curiosidade abre portas, mas o <span className="text-fuchsia-500 not-serif font-sans font-black uppercase tracking-tight">esforço real</span> é o que nos mantém dentro delas."
+                "Não é sobre visibilidade gratuita, é sobre ter a coragem de <span className="text-fuchsia-500 not-serif font-sans font-black uppercase tracking-tight">dar a cara a tapa</span> para ocupar meu lugar."
               </h2>
               
               <p className="text-neutral-400 max-w-2xl mx-auto mb-12 text-sm md:text-base leading-relaxed">
-                As fofocas e curiosidades movimentam o mercado hoje. <span className="text-white">Obrigada por chegar até aqui!</span> Eu, como estudante, preciso chamar a atenção de alguma forma para ocupar meus espaços.
+                Sei que, para ser notada no mercado hoje, preciso me posicionar com firmeza. <span className="text-white">Obrigada por chegar até aqui!</span> Este acesso não é apenas um convite à curiosidade, mas a prova de que estou pronta para criar impacto e assumir responsabilidades no mundo real.
               </p>
               
               <button 
@@ -119,17 +120,17 @@ export default function Portfolio() {
               </div>
             </nav>
 
-            {/* SEÇÃO SOBRE MIM - PERFIL PROFISSIONAL & ACADÊMICO */}
+            {/* SEÇÃO SOBRE MIM */}
             <section className="py-24 px-6 max-w-6xl mx-auto">
               <div className="flex flex-col md:flex-row gap-16 items-start">
-                <div className="w-full md:w-1/3 sticky top-32">
+                <div className="w-full md:w-1/3 sticky top-32 flex flex-col items-center md:items-start">
                   <div className="relative group">
-                    <div className="absolute -inset-2 bg-fuchsia-600 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
-                    <div className="relative aspect-[3/4] rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl border border-white/10">
+                    <div className="absolute -inset-2 bg-fuchsia-600 rounded-full blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+                    <div className="relative w-64 h-64 md:w-full md:h-auto md:aspect-square rounded-full overflow-hidden transition-all duration-700 shadow-2xl border-4 border-white/10">
                        <img src="/img/hero.jpeg" alt="Lauane Peres Barbosa" className="w-full h-full object-cover" />
                     </div>
                   </div>
-                  <div className="mt-8 space-y-2">
+                  <div className="mt-8 space-y-2 text-center md:text-left">
                     <h1 className="text-3xl font-black uppercase tracking-tighter">Lauane Peres Barbosa</h1>
                     <p className="text-fuchsia-500 font-mono text-sm tracking-widest uppercase italic">Engenharia de Produção @ UNIFEI</p>
                   </div>
@@ -142,13 +143,13 @@ export default function Portfolio() {
                     </h2>
                     <div className="space-y-6 text-neutral-400 text-lg leading-relaxed">
                       <p>
-                        Olá, eu sou a <span className="text-white font-bold">Lauane Peres Barbosa</span>. Estudar e trabalhar não é um "lifestyle", é a realidade de quem constrói o próprio futuro do zero. Atualmente, curso <span className="text-white font-bold">Engenharia de Produção na Universidade Federal de Itajubá - UNIFEI</span>, onde fundo a lógica analítica da engenharia com o desenvolvimento de software.
+                        Olá, eu sou a <span className="text-white font-bold">Lauane Peres Barbosa</span>. Estudar e trabalhar não é um "lifestyle", é a realidade de quem constrói o próprio futuro do zero. Atualmente, curso <span className="text-white font-bold">Engenharia de Produção na UNIFEI</span>, onde fundo a lógica analítica da engenharia com o desenvolvimento de software.
                       </p>
                       <p>
-                        O meu perfil é definido pela <span className="text-white font-bold">comunicação assertiva e pelo profissionalismo</span>. Como programadora, domino <span className="text-white font-bold">Python, PHP, C# e CSS</span>, com facilidade técnica em arquiteturas <span className="text-white font-bold">FastAPI</span> e gestão de <span className="text-white font-bold">Bancos de Dados SQL</span>.
+                        Meu perfil é definido pela execução e pelo posicionamento. Como programadora, domino <span className="text-white font-bold">Python e tecnologias de automação</span>, com foco em arquiteturas <span className="text-white font-bold">FastAPI</span> e gestão de dados SQL. 
                       </p>
-                      <p className="border-l-4 border-fuchsia-600 pl-6 italic bg-fuchsia-600/5 py-4">
-                        "Para quem compra uma UaneBag, leva um produto handmade que financia um sonho técnico. Para quem busca soluções digitais, este site é um exemplo do meu compromisso com a excelência e inovação."
+                      <p className="border-l-4 border-fuchsia-600 pl-6 italic bg-fuchsia-600/5 py-4 text-white">
+                        "Enquanto a Uane sonha em alcançar seus objetivos, a Lauane é quem levanta todos os dias para alcançá-los."
                       </p>
                     </div>
                   </div>
@@ -159,7 +160,7 @@ export default function Portfolio() {
                         <Code size={18} className="text-fuchsia-500"/> Stack Técnica
                       </div>
                       <p className="text-neutral-400 text-sm leading-relaxed">
-                        Especialista em <span className="text-fuchsia-400">FastAPI (Python)</span>, PHP, C#, Automação de Dados e modelagem SQL/MySQL.
+                        Foco em <span className="text-fuchsia-400">FastAPI</span>, automação de dados e modelagem de sistemas eficientes.
                       </p>
                     </div>
                     <div className="space-y-4">
@@ -167,7 +168,7 @@ export default function Portfolio() {
                         <Sparkles size={18} className="text-fuchsia-500"/> Soft Skills
                       </div>
                       <p className="text-neutral-400 text-sm leading-relaxed">
-                        Perfil comunicativo, liderança no Centro Acadêmico de Eng. de Produção e foco em resultados profissionais.
+                        Comunicação assertiva e resiliência para transformar desafios técnicos em soluções práticas.
                       </p>
                     </div>
                   </div>
@@ -175,23 +176,44 @@ export default function Portfolio() {
               </div>
             </section>
 
-            {/* UANEBAG - PRODUTOS */}
+            {/* UANEBAG - A MARCA E O SONHO */}
             <section className="py-24 px-6 bg-white text-black">
               <div className="max-w-6xl mx-auto">
-                <div className="mb-16 text-center md:text-left">
-                  <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none mb-4 uppercase">UaneBag®</h2>
-                  <p className="text-neutral-600 max-w-xl text-lg font-medium italic">Edição limitada. Solicite disponibilidade e modelos exclusivos via direct.</p>
+                <div className="mb-16 grid grid-cols-1 md:grid-cols-2 gap-8 items-end">
+                  <div>
+                    <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none mb-4 uppercase">UaneBag®</h2>
+                    <div className="space-y-4 text-neutral-700 text-lg leading-relaxed">
+                      <p>
+                        A <span className="font-bold text-black italic">UaneBag</span> nasceu de um lugar de afeto: "Uane" era como minha priminha pequena me chamava antes de conseguir dizer meu nome completo. O que começou como um apelido carinhoso, tornou-se o nome de uma marca construída do zero.
+                      </p>
+                      <p>
+                        A marca representa a dualidade da minha trajetória. <span className="font-bold text-black">Uane</span> é a essência, a menina que sonha alto e visualiza os objetivos. <span className="font-bold text-black">Lauane</span> é a engenheira, a força técnica que executa e faz esses sonhos se tornarem realidade.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="pb-2">
+                     <p className="text-neutral-500 font-medium italic border-l-2 border-black pl-4">
+                        "Ao adquirir uma UaneBag, você não leva apenas um produto handmade; você financia a trajetória de uma futura engenheira e apoia um projeto que une design, esforço e propósito técnico."
+                     </p>
+                  </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
                   {[
-                    { title: "Ecobag MPB MULHERES", desc: "A armadura do dia a dia. Espaçosa, reforçada e com estética industrial.", img: "/img/ecobag1.jpg" },
-                    { title: "Ecobag LATINO AMERICANO", desc: "Minimalismo para quem carrega notebooks e ideias pesadas.", img: "/img/ecobag2.jpg" }
+                    { title: "Ecobag MPB MULHERES", desc: "A armadura do dia a dia. Espaçosa, reforçada e com estética industrial.", img: "/img/ecobag1.png" },
+                    { title: "Ecobag LATINO AMERICANO", desc: "Minimalismo para quem carrega notebooks e ideias pesadas.", img: "/img/ecobag2.png" }
                   ].map((item, idx) => (
-                    <div key={idx} className="group cursor-crosshair">
-                      <div className="relative overflow-hidden aspect-[4/5] bg-neutral-100 mb-6">
-                         <img src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
-                         <div className="absolute top-4 right-4 bg-black text-white px-3 py-1 text-[10px] font-bold uppercase tracking-widest">Handmade</div>
+                    <div key={idx} className="group">
+                      <div className="relative overflow-hidden aspect-[4/5] bg-neutral-100 mb-6 cursor-zoom-in z-10">
+                         <motion.img 
+                            src={item.img} 
+                            alt={item.title} 
+                            className="w-full h-full object-cover"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 1.4 }} 
+                            transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                         />
+                         <div className="absolute top-4 right-4 bg-black text-white px-3 py-1 text-[10px] font-bold uppercase tracking-widest pointer-events-none">UANEBAG</div>
                       </div>
                       <div className="mb-6">
                         <h3 className="text-3xl font-black tracking-tighter uppercase">{item.title}</h3>
@@ -237,21 +259,53 @@ export default function Portfolio() {
             <section className="py-32 px-6 text-center bg-fuchsia-600 text-white">
               <h2 className="text-5xl md:text-7xl font-black tracking-tighter mb-8 italic uppercase">Não é só uma vaga, <br/>é um investimento.</h2>
               <p className="max-w-2xl mx-auto mb-12 text-lg font-medium opacity-90 leading-relaxed">
-                Você viu meu corre, viu minha marca e viu meu código. <br/>
+                Você conheceu a Uane e a Lauane. Viu a marca, a técnica e o sistema. <br/>
                 Agora, que tal transformarmos esse potencial em resultado para sua empresa?
               </p>
               <div className="flex flex-col md:flex-row justify-center gap-6">
                 <button 
-                  onClick={() => window.open('https://wa.me/5512997716710','_blank')}
+                  onClick={() => setShowPix(true)}
                   className="px-12 py-5 bg-black text-white font-black uppercase text-xs tracking-widest hover:scale-105 transition"
                 >
                   Apoiar com PIX
                 </button>
-                <a href="mailto:lauanepb10@gmail.com" className="px-12 py-5 border-2 border-black text-black font-black uppercase text-xs tracking-widest hover:bg-black hover:text-white transition">
+                <a href="mailto:lauanepr@outlook.com" className="px-12 py-5 border-2 border-black text-black font-black uppercase text-xs tracking-widest hover:bg-black hover:text-white transition">
                   Contratar Lauane
                 </a>
               </div>
             </section>
+
+            {/* MODAL PIX */}
+            <AnimatePresence>
+              {showPix && (
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/90 backdrop-blur-xl"
+                  onClick={() => setShowPix(false)}
+                >
+                  <motion.div 
+                    initial={{ scale: 0.9, y: 20 }}
+                    animate={{ scale: 1, y: 0 }}
+                    exit={{ scale: 0.9, y: 20 }}
+                    className="bg-white p-8 rounded-3xl max-w-sm w-full text-center relative"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <button onClick={() => setShowPix(false)} className="absolute top-4 right-4 text-neutral-400 hover:text-black">
+                      <X size={24} />
+                    </button>
+                    <h3 className="text-black font-black text-2xl uppercase tracking-tighter mb-4 italic">Apoie o Projeto</h3>
+                    <div className="aspect-square bg-neutral-100 rounded-xl mb-6 overflow-hidden border-2 border-fuchsia-500 p-2">
+                       <img src="/img/qrcode.png" alt="QR Code PIX" className="w-full h-full object-contain" />
+                    </div>
+                    <p className="text-neutral-600 text-sm font-medium leading-relaxed">
+                      Sua contribuição ajuda a financiar meus estudos na UNIFEI e o crescimento da UaneBag. 🖤
+                    </p>
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
             {/* FOOTER */}
             <footer className="py-20 px-6 border-t border-white/5 bg-black">
@@ -264,7 +318,7 @@ export default function Portfolio() {
                 <div className="flex gap-8">
                   <a href="https://www.instagram.com/lauaneperes?igsh=MXdqN3J3ajBlMTNjag==" className="text-neutral-400 hover:text-fuchsia-500 transition"><Instagram size={28}/></a>
                   <a href="https://www.linkedin.com/in/lauane-barbosa/" className="text-neutral-400 hover:text-fuchsia-500 transition"><Linkedin size={28}/></a>
-                  <a href="mailto:lauanepb10@gmail.com" className="text-neutral-400 hover:text-fuchsia-500 transition"><Mail size={28}/></a>
+                  <a href="mailto:lauanepr@outlook.com" className="text-neutral-400 hover:text-fuchsia-500 transition"><Mail size={28}/></a>
                 </div>
 
                 <div className="text-right">
