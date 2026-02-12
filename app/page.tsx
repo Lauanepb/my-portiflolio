@@ -3,6 +3,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Instagram, Linkedin, Mail, MessageCircle, ShoppingBag, Heart, ArrowDown, Lock, Terminal, Sparkles, Code, GraduationCap, Briefcase, Database, X } from "lucide-react";
 import { useEffect, useState } from "react";
+// Adicionado para o Analytics oficial da Vercel
+import { Analytics } from "@vercel/analytics/react";
 
 export default function Portfolio() {
   const [visits, setVisits] = useState(0);
@@ -330,6 +332,8 @@ export default function Portfolio() {
           </motion.div>
         )}
       </AnimatePresence>
+      {/* COMPONENTE ADICIONADO PARA O VERCEL ANALYTICS FUNCIONAR */}
+      <Analytics />
     </main>
   );
 }
